@@ -1,10 +1,3 @@
-requirements.txt
-joblib
-scikit-learn
-streamlit
-git add requirements.txt
-git commit -m "Add requirements.txt for deployment"
-git push origin main
 """
 Nhóm 13 – Design Inspiration Recommendation System
 Streamlit App
