@@ -443,18 +443,23 @@ if search_btn and query.strip():
         cols = st.columns(n_cols)
         for col, (_, row) in zip(cols, row_df.iterrows()):
             sim_pct = row["similarity"] * 100
-            img_url = image_url(row["style_label"], row["material_label"],
-                                seed=int(row["Image_id"]))
+            
+            # Lấy ảnh base64
+            img_url = image_url(row["style_label"], row["material_label"], seed=int(row["Image_id"]))
+            
+            # THÊM DÒNG NÀY: Xử lý luôn URL thực tế (base64 hoặc link dự phòng từ picsum)
+            actual_img_url = img_url if img_url else f'https://picsum.photos/seed/{int(row["Image_id"])}/800/500'
+            
             colors  = [row["color1"], row["color2"], row["color3"]]
             # validate hex
-            colors  = [c if re.match(r'^#[0-9A-Fa-f]{6}$', str(c).strip()) else "#cccccc"
-                       for c in colors]
+            colors  = [c if re.match(r'^#[0-9A-Fa-f]{6}$', str(c).strip()) else "#cccccc" for c in colors]
 
             with col:
                 st.markdown(f"""
                 <div class="result-card">
-                    <img src="{img_url}" style="width:100%;height:200px;object-fit:cover;" 
-                         onerror="this.src='https://picsum.photos/seed/{int(row["Image_id"])}/800/500'">
+                    <a href="{actual_img_url}" target="_blank" title="Click để xem ảnh kích thước gốc">
+                        <img src="{actual_img_url}" style="width:100%;height:200px;object-fit:cover;cursor:pointer;transition:0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">
+                    </a>
                     <div class="card-body">
                         <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
                             <span class="badge badge-style">🎨 {row["style_label"]}</span>
