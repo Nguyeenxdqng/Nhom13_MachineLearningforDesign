@@ -30,4 +30,4 @@ Dưới đây là danh sách các tài liệu, thư viện và tài nguyên hữ
 
 ## DEMO APP
 
-[![Streamlit App](https://nhom13machinelearningfordesign-inspirationrecommendationsystem.streamlit.app/)]
+[[Streamlit App](https://nhom13machinelearningfordesign-inspirationrecommendationsystem.streamlit.app/)]
