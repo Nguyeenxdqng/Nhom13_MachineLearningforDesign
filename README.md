@@ -5,7 +5,7 @@
 
 ## DEMO APP
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Streamlit App](https://nhom13machinelearningfordesign-inspirationrecommendationsystem.streamlit.app/)]
 
 ## GitHub Codespaces
 
